@@ -39,15 +39,15 @@ const test = async () =>{
                     browserr = await play.launch({ headless : true,});                    
                     page2 = await browserr[i].newPage();
                     await page2.setCookie(...cookies);
-                    await page2.setRequestInterception(true);
-                    await page2.on('request', (request) => {
-                        // Block All Images
-                        if (request.url().endsWith('d3457215004vlngen')) {
-                            request.abort();
-                        } else {
-                            request.continue()
-                        }
-                    });
+                    // await page2.setRequestInterception(true);
+                    // await page2.on('request', (request) => {
+                    //     // Block All Images
+                    //     if (request.url().endsWith('d3021868244vlngen')) {
+                    //         request.abort();
+                    //     } else {
+                    //         request.continue()
+                    //     }
+                    // });
                     await page2.goto(link, { waitUntil: 'domcontentloaded' });
                 
                     console.log(await page.evaluate(() => globalThis.w3tVar('order_id')));
