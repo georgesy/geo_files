@@ -40,66 +40,67 @@ const test = async () =>{
                     page2 = await browserr.newPage();
                     await page2.setCookie(...cookies);                  
                   
-                    await page2.evaluateOnNewDocument(() => {
-                        window.w3tVar = function (k) {
-                            var w3tVars = {};
-                            w3tVars.order_id = 239842001;
-                            w3tVars.order_pages_qty = 1;
-                            w3tVars.order_price_type = 'bidding';
-                            w3tVars.order_paper_lang = 'en';
-                            w3tVars.order_ping_interval_sec = 10;
-                            w3tVars.min_bid_amount = 6;
-                            w3tVars.min_bid_amount_str = '6';
-                            w3tVars.max_bid_amount = 9999;
-                            w3tVars.max_bid_amount_str = '9999';
-                            w3tVars.place_bid_conditions_json = {"read_time_remain":0,"files_download_remain":0};
-                            w3tVars.order_details_read_msg_required = false;
-                            w3tVars.all_bid_id = 0;
-                            w3tVars.actual_bid_id = 0;
-                            w3tVars.cl_lang = 'en';
-                            w3tVars.conf_online_status_msg_online = '<span class="ustatus_label ustatus_online" data-sort="30" style="color:#3ea600">Online<\/span>';
-                            w3tVars.conf_online_status_msg_away = '<span class="ustatus_label ustatus_away" data-sort="20" style="color:#eea200">Away<\/span>';
-                            w3tVars.conf_online_status_msg_offline = '<span class="ustatus_label ustatus_offline" data-sort="10" style="color:#e52e00">Offline<\/span>';
-                            w3tVars.conf_user_online_status_away_mins = 5;
-                            w3tVars.conf_new_message_sound_vol = 0.5;
-                            w3tVars.pushstream_enabled = true;
-                            w3tVars.pushstream_host = 'box1.essayshark.com';
-                            w3tVars.pushstream_protocol = 'https';
-                            w3tVars.pushstream_subscriber = '\/live\/sub';
-                            w3tVars.pushstream_subscriber_websocket = '\/live\/ws';
-                            w3tVars.site_path = '\/writer\/orders\/';
-                            w3tVars.site_page = '239711163';
-                            w3tVars.my_location_backoffice = true;
-                            w3tVars.my_location_page = 'order_view';
-                            w3tVars.my_location_order = 239711163;
-                            w3tVars.my_location_order_status = 20;
-                            w3tVars.my_location_bid = 0;
-                            w3tVars.my_location_bids_qty = 0;
-                            w3tVars.user_role = 'writer';
-                            w3tVars.user_id = 4866;
-                            w3tVars.user_login = '7053f8b5366c36467d3b28d505b181a5';
-                            w3tVars.user_email = 'cmutungi17@yahoo.com';
-                            w3tVars.user_hid = '17932cca86ab63c02ffbda89e4e2acbc';
-                            w3tVars.pcm_ec_name = 'lnkptpc';
-                            w3tVars.auth_extension_name = 'extauth';
-                            w3tVars.writer_title_ucfirst = 'Writer';
-                            w3tVars.datepicker_format = 'j M Y';
-                            w3tVars.fin_rate_cny2usd = 0.153;
-                            w3tVars.order_details_always_visible = true;
-                            w3tVars.order_status = 20;
-                            if (typeof(w3tVars[k]) !== 'undefined')
-                            {
-                                return w3tVars[k];
-                            }
-                            return '';
-                        }; 
+                    // await page2.evaluateOnNewDocument(() => {
+                    //     window.w3tVar = function (k) {
+                    //         var w3tVars = {};
+                    //         w3tVars.order_id = 239842001;
+                    //         w3tVars.order_pages_qty = 1;
+                    //         w3tVars.order_price_type = 'bidding';
+                    //         w3tVars.order_paper_lang = 'en';
+                    //         w3tVars.order_ping_interval_sec = 10;
+                    //         w3tVars.min_bid_amount = 6;
+                    //         w3tVars.min_bid_amount_str = '6';
+                    //         w3tVars.max_bid_amount = 9999;
+                    //         w3tVars.max_bid_amount_str = '9999';
+                    //         w3tVars.place_bid_conditions_json = {"read_time_remain":0,"files_download_remain":0};
+                    //         w3tVars.order_details_read_msg_required = false;
+                    //         w3tVars.all_bid_id = 0;
+                    //         w3tVars.actual_bid_id = 0;
+                    //         w3tVars.cl_lang = 'en';
+                    //         w3tVars.conf_online_status_msg_online = '<span class="ustatus_label ustatus_online" data-sort="30" style="color:#3ea600">Online<\/span>';
+                    //         w3tVars.conf_online_status_msg_away = '<span class="ustatus_label ustatus_away" data-sort="20" style="color:#eea200">Away<\/span>';
+                    //         w3tVars.conf_online_status_msg_offline = '<span class="ustatus_label ustatus_offline" data-sort="10" style="color:#e52e00">Offline<\/span>';
+                    //         w3tVars.conf_user_online_status_away_mins = 5;
+                    //         w3tVars.conf_new_message_sound_vol = 0.5;
+                    //         w3tVars.pushstream_enabled = true;
+                    //         w3tVars.pushstream_host = 'box1.essayshark.com';
+                    //         w3tVars.pushstream_protocol = 'https';
+                    //         w3tVars.pushstream_subscriber = '\/live\/sub';
+                    //         w3tVars.pushstream_subscriber_websocket = '\/live\/ws';
+                    //         w3tVars.site_path = '\/writer\/orders\/';
+                    //         w3tVars.site_page = '239711163';
+                    //         w3tVars.my_location_backoffice = true;
+                    //         w3tVars.my_location_page = 'order_view';
+                    //         w3tVars.my_location_order = 239711163;
+                    //         w3tVars.my_location_order_status = 20;
+                    //         w3tVars.my_location_bid = 0;
+                    //         w3tVars.my_location_bids_qty = 0;
+                    //         w3tVars.user_role = 'writer';
+                    //         w3tVars.user_id = 4866;
+                    //         w3tVars.user_login = '7053f8b5366c36467d3b28d505b181a5';
+                    //         w3tVars.user_email = 'cmutungi17@yahoo.com';
+                    //         w3tVars.user_hid = '17932cca86ab63c02ffbda89e4e2acbc';
+                    //         w3tVars.pcm_ec_name = 'lnkptpc';
+                    //         w3tVars.auth_extension_name = 'extauth';
+                    //         w3tVars.writer_title_ucfirst = 'Writer';
+                    //         w3tVars.datepicker_format = 'j M Y';
+                    //         w3tVars.fin_rate_cny2usd = 0.153;
+                    //         w3tVars.order_details_always_visible = true;
+                    //         w3tVars.order_status = 20;
+                    //         if (typeof(w3tVars[k]) !== 'undefined')
+                    //         {
+                    //             return w3tVars[k];
+                    //         }
+                    //         return '';
+                    //     }; 
 
-                        // var place_bid_conditions = w3tVar('place_bid_conditions_json');
-                        // var data = w3tVar('place_bid_conditions_json');
-                        // timer_id_4_check_read_status = setInterval(function() { 1+1 }, 5000);
+                    //     // var place_bid_conditions = w3tVar('place_bid_conditions_json');
+                    //     // var data = w3tVar('place_bid_conditions_json');
+                    //     // timer_id_4_check_read_status = setInterval(function() { 1+1 }, 5000);
                         
-                    });   
+                    // });   
                     await page2.goto(links[7], { waitUntil: 'domcontentloaded' });
+                    
                     
                 
                     await page2.evaluate(() => {
