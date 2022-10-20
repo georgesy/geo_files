@@ -109,7 +109,7 @@ const test = async () =>{
                     
                     await page2.waitForSelector('#rec_amount');
                     const rec = await page2.$eval('#rec_amount', (el) => el.textContent);                    
-                    
+                    await page2.waitForSelector('#id_bid');
                     await page2.type("#id_bid",rec);       
                     
                   
@@ -176,8 +176,7 @@ const test = async () =>{
                         
                     });        
                     
-                    console.log(await page2.evaluate(() => globalThis.w3tVar('order_id')));
-                    console.log(await page2.evaluate(() => globalThis.data));
+                    console.log(await page2.evaluate(() => globalThis.w3tVar('order_id')));                   
                     
                     // await page2.click(".fortop input[type=submit]");
 
@@ -193,29 +192,27 @@ const test = async () =>{
                         // });
                         
                     }); 
-                    // if(children==3){                        
-                    //     var timerr =  await page2.$eval('#id_read_timeout_sec', (el) => el.textContent);
-                    //     var counter = timerr * 1000;    
+                    if(children==3){                        
                         
-                    //     await page2.waitForSelector("#id_read_timeout_sec");
-                    //     var timerr =  await page2.$eval('#id_read_timeout_sec', (el) => el.textContent);
-                    //     var counter = timerr * 1000;
-                    //     console.log("This is the counter "+counter)
-                    //     await page2.waitForTimeout(counter);
-                    //     await page2.click(".fortop input[type=submit]");
+                        await page2.waitForSelector("#id_read_timeout_sec");
+                        var timerr =  await page2.$eval('#id_read_timeout_sec', (el) => el.textContent);
+                        var counter = timerr * 1000;
+                        console.log("This is the counter "+counter)
+                        await page2.waitForTimeout(counter);
+                        await page2.click(".fortop input[type=submit]");
                               
                         
-                    //     await page2.$eval('.fortop input[type=submit]', (el) => el.click());
+                        await page2.$eval('.fortop input[type=submit]', (el) => el.click());
                                
                         
-                    // }else if(children==2){          
+                    }else if(children==2){          
                         
-                    //     await page2.$eval('.fortop input[type=submit]', (el) => el.click());                                       
+                        await page2.$eval('.fortop input[type=submit]', (el) => el.click());                                       
                         
-                    // }else{
-                    //     console.log("Champe champees");
+                    }else{
+                        console.log("Champe champees");
                     
-                    // }                
+                    }                
                  
                 // browserr.close();
                
