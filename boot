@@ -38,26 +38,9 @@ const test = async () =>{
                     const links = await page.$$eval(selector, am => am.filter(e => e.href).map(e => e.href));     
                     browserr = await play.launch({ headless : false,});                    
                     page2 = await browserr.newPage();
-                    await page2.setCookie(...cookies);
-                    await page2.goto(links[7], { waitUntil: 'domcontentloaded' });
-                    
-                
-                    // console.log(await page.evaluate(() => globalThis.w3tVar('order_id')));
-                    // console.log(await page.evaluate(() => globalThis.place_bid_conditions));
-                    await page2.evaluate(() => {
-                        document.querySelector('.fortop input[type=submit]').removeAttribute('disabled');                    
-                    });
-                    
-                    await page2.waitForSelector('#rec_amount');
-                    const rec = await page2.$eval('#rec_amount', (el) => el.textContent);                    
-                    
-                    await page2.type("#id_bid",rec);       
-                    
+                    await page2.setCookie(...cookies);                  
                   
-                    console.log(await page2.evaluate(() => globalThis.w3tVar('order_id')));
-                    var place_bid_conditions = {};
-                    var timer_id_4_check_read_status;
-                    await page2.evaluate(() => {
+                    await page2.evaluateOnNewDocument(() => {
                         window.w3tVar = function (k) {
                             var w3tVars = {};
                             w3tVars.order_id = 239842001;
@@ -111,14 +94,26 @@ const test = async () =>{
                             return '';
                         }; 
 
-                        var place_bid_conditions = w3tVar('place_bid_conditions_json');
-                        var data = w3tVar('place_bid_conditions_json');
-                        timer_id_4_check_read_status = setInterval(function() { 1+1 }, 5000);
+                        // var place_bid_conditions = w3tVar('place_bid_conditions_json');
+                        // var data = w3tVar('place_bid_conditions_json');
+                        // timer_id_4_check_read_status = setInterval(function() { 1+1 }, 5000);
                         
-                    });        
+                    });   
+                    await page2.goto(links[7], { waitUntil: 'domcontentloaded' });
+                    
+                
+                    await page2.evaluate(() => {
+                        document.querySelector('.fortop input[type=submit]').removeAttribute('disabled');                    
+                    });
+                    
+                    await page2.waitForSelector('#rec_amount');
+                    const rec = await page2.$eval('#rec_amount', (el) => el.textContent);                    
+                    
+                    await page2.waitForSelector('#id_bid');
+                    await page2.type("#id_bid",rec);            
                     
                     console.log(await page2.evaluate(() => globalThis.w3tVar('order_id')));
-                    console.log(await page2.evaluate(() => globalThis.data));
+                   
                     
                     // await page2.click(".fortop input[type=submit]");
 
